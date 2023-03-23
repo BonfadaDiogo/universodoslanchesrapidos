@@ -26,9 +26,15 @@ class _QuantidadeState extends State<Quantidade> {
           icon: Icon(Icons.add)
         ),
         
-        Container(
-          //alignment: Alignment.center,
-          child: Text(qtd.toString()),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(width: 0.5)
+            ),
+            //alignment: Alignment.center,
+            child: Text(qtd.toString()),
+          ),
         ),
         
         IconButton(

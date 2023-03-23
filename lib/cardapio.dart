@@ -1,5 +1,10 @@
 import 'dart:convert';
 
+import 'package:cardapio/cadastro.dart';
+import 'package:cardapio/formadepagamento.dart';
+import 'package:cardapio/formulario.dart';
+import 'package:cardapio/login.dart';
+import 'package:cardapio/sobreaempresa.dart';
 import 'package:cardapio/widgets/quantidade.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -24,12 +29,32 @@ class _CardapioState extends State<Cardapio> {
         actions: <Widget>[
           PopupMenuButton(
               onSelected: ((result) {
-                // switch (result) {
-                //   case 1:
-                //     Navigator.push(context,
-                //         MaterialPageRoute(builder: (context) => MyList()));
-                //     break;
-                // }
+                switch (result) {
+                  case 1:
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Login()));
+                    break;
+                  case 2:
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Cadastro()));
+                    break;
+                  case 3:
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Cardapio()));
+                    break;
+                  case 4:
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => FormaDePamento()));
+                    break;
+                  case 5:
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Formulario()));
+                    break;
+                  case 6:
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SobreAEmpresa()));
+                    break;
+                }
               }),
               icon: Icon(Icons.forward),
               iconSize: 40,
@@ -37,16 +62,34 @@ class _CardapioState extends State<Cardapio> {
                 return [
                   PopupMenuItem(
                     value: 1,
-                    child: Text("Outra página"),
+                    child: Text("Login"),
                   ),
+
                   PopupMenuItem(
                     value: 2,
-                    child: Text("Mais uma página"),
+                    child: Text("Cadastro"),
                   ),
+                 
                   PopupMenuItem(
                     value: 3,
-                    child: Text("Mais um item (faz nada)"),
+                    child: Text("Cardápio"),
                   ),
+
+                   PopupMenuItem(
+                    value: 4,
+                    child: Text("Forma de pagamento"),
+                  ),
+
+                   PopupMenuItem(
+                    value: 5,
+                    child: Text("Formulario"),
+                  ),
+
+                   PopupMenuItem(
+                    value: 6,
+                    child: Text("sobre a emprersa"),
+                  ),
+
                 ];
               })
         ],
@@ -78,7 +121,7 @@ class _CardapioState extends State<Cardapio> {
                       trailing: Quantidade(),
                       title: Text(content[index]["nome"]),
                       subtitle: Text(content[index]["ingredientes"]),
-                      onTap: () {
+                      onTap: () =>  {
                         
                       },
                     );
